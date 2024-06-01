@@ -1,0 +1,16 @@
+// _ marks a silent rule. One that doesn't produce a token.
+WHITESPACE = _{ " " }
+
+char = { ASCII_ALPHANUMERIC | "." | "_" | "/" }
+// @ means atomic and means there is no implicit whitespace
+name = @{ char+ }
+value = @{ char* }
+
+section = { "[" ~ name ~ "]" }
+property = { name ~ "=" ~ value }
+
+file = {
+    SOI ~
+    ((section | property)? ~ NEWLINE)* ~
+    EOI
+}
