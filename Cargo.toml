@@ -1,0 +1,9 @@
+[package]
+name = "pest-book"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+pest = "2.7.10"
+pest_derive = "2.7.10"
